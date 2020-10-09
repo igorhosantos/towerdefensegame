@@ -1,19 +1,26 @@
 ﻿
+using UnityEditor.AI;
 using UnityEngine;
 
 public class BuildingPlaceable : MonoBehaviour
 {
     private RaycastHit hit;
     private Vector3 movePoint;
-    [SerializeField] private ConstructionView prefab;
-
+    private ConstructionView prefab;
     private ConstructionView target;
     private bool enable;
     
-    public void EnableNewConstruction()
+    public void EnableNewConstruction(ConstructionView constructionView)
     {
+        prefab = constructionView;
         target = Instantiate(prefab);
+        target.SelectMode();
         enable = true;
+    }
+
+    void Awake()
+    {
+        NavMeshBuilder.BuildNavMesh();
     }
 
     void Start()
@@ -40,9 +47,13 @@ public class BuildingPlaceable : MonoBehaviour
         if (Input.GetMouseButton(0) && enable)
         {
             if (target.ValidSpot)
-                Instantiate(prefab, target.transform.position, target.transform.rotation);
+            {
+                ConstructionView view = Instantiate(prefab, target.transform.position, target.transform.rotation,transform);
+                view.Place();
+                NavMeshBuilder.BuildNavMesh();
+            }
 
-            Destroy(target);
+            Destroy(target.gameObject);
             enable = false;
         }
     }

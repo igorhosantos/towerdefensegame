@@ -15,7 +15,6 @@ public class HudView : MonoBehaviour
 
     private void SummonCard(ConstructionType type)
     {
-        Debug.LogWarning("SUMMON : " + type);
         SummonedCard?.Invoke(type);
     }
 

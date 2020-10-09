@@ -1,8 +1,10 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class BoardView : MonoBehaviour
 {
     [SerializeField] private BuildingPlaceable buildingPlaceable;
+    [SerializeField] private List<ConstructionView> constructions;
 
     void Awake()
     {
@@ -11,7 +13,11 @@ public class BoardView : MonoBehaviour
 
     private void OnSummonConstruction(ConstructionType type)
     {
-        Debug.LogWarning("Create : " + type);
-        buildingPlaceable.EnableNewConstruction();
+        buildingPlaceable.EnableNewConstruction(GetConstructionByType(type));
+    }
+
+    private ConstructionView GetConstructionByType(ConstructionType type)
+    {
+        return constructions.Find(c => c.ConstructionType == type);
     }
 }
