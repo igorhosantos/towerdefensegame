@@ -1,10 +1,13 @@
 ﻿using System.Collections.Generic;
+using Assets.Script.view.board;
 using UnityEngine;
 
 public class BoardView : MonoBehaviour
 {
+    
     [SerializeField] private BuildingPlaceable buildingPlaceable;
     [SerializeField] private List<ConstructionView> constructions;
+    [SerializeField] private List<SpawnSpotView> spots;
 
     void Awake()
     {
