@@ -7,6 +7,7 @@ public class ConstructionView : MonoBehaviour
     [SerializeField] protected ConstructionType constructionType;
     [SerializeField] protected Renderer renderer;
     [SerializeField] protected BuildingStatus status;
+    [SerializeField] protected AttackView constructionAttack;
 
     public ConstructionType ConstructionType => constructionType;
     public bool ValidSpot { get; private set; } = true;

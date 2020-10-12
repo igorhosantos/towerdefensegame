@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Construction
   - Enemy
+  - EnemyAttack
+  - ConstructionAttack
   layers:
   - Default
   - TransparentFX

@@ -308,6 +308,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LifeBar
       objectReference: {fileID: 0}
+    - target: {fileID: 5437403357029445197, guid: 344051cb040fe374f9c0fc76293d2faa,
+        type: 3}
+      propertyPath: lifeLabel
+      value: 
+      objectReference: {fileID: 8520140154384686252}
     - target: {fileID: 6837357784771368843, guid: 344051cb040fe374f9c0fc76293d2faa,
         type: 3}
       propertyPath: m_AnchorMax.x

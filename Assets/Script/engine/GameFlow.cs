@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections;
+using System.Collections.Generic;
 using Assets.Script.engine;
 using UnityEngine;
 
@@ -9,7 +9,6 @@ public class GameFlow : MonoBehaviour
     [SerializeField] private BoardView boardView;
     [SerializeField] private HudView hudView;
 
-
     public delegate void GameEvent();
     public static event GameEvent NotifyLose;
     public static event GameEvent NotifyWin;
@@ -18,15 +17,22 @@ public class GameFlow : MonoBehaviour
     public delegate void WaveEvent(List<WaveMembers> members, int spawnId);
     public static event WaveEvent NotifyNewWave;
 
+
+    //game finish control 
+    private int totalEnemies;
+    private int enemiesKilled;
+
     void Start()
     {
-        Invoke(nameof(NextWave),1f);
+        NotifyStart?.Invoke();
+        waveConfig.Waves.ForEach(SetWave);
     }
 
-    private void NextWave()
+    private void SetWave(WaveData wv)=> StartCoroutine(NextWave(wv));
+    
+    private IEnumerator NextWave(WaveData wave)
     {
-        NotifyStart?.Invoke();
-        var wave = waveConfig.Waves.First();
+        yield return new WaitForSeconds(wave.TimeDelay);
         NotifyNewWave?.Invoke(wave.Members, wave.RandomSpawn ? Random.Range(1,GameConfig.TotalSpawnPoints) : wave.SpawnId);
     }
 }

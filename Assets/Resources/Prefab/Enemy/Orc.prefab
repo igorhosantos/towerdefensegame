@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1360286593005761932}
   - component: {fileID: 1069458358961121918}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Orc
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -109,9 +109,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4e38e08737db55408ec2c9e3f901c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyType: 0
   lifeBar: {fileID: 8067835315479974714}
+  navMeshAgent: {fileID: 1069458358961121918}
+  enemyAttack: {fileID: 9155822060524936189, guid: 14dffdecd59f74d4b9dfd35f7b257bb2,
+    type: 3}
   life: 10
-  speed: 10
+  speed: 2
+  damage: 1
+  attackDelay: 2
+  distanceToAttack: 3
 --- !u!195 &1069458358961121918
 NavMeshAgent:
   m_ObjectHideFlags: 0

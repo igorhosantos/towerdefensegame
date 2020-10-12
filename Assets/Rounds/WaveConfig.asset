@@ -14,12 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - spawnId: 2
-    randomSpawn: 1
-    members:
-    - type: 0
-      amount: 5
-    - type: 1
-      amount: 4
-  - spawnId: 0
     randomSpawn: 0
-    members: []
+    timeDelay: 2
+    members:
+    - enemyType: 0
+      amount: 2
+  - spawnId: 1
+    randomSpawn: 0
+    timeDelay: 6
+    members:
+    - enemyType: 1
+      amount: 3
