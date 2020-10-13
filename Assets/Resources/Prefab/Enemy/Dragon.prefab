@@ -91,7 +91,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7657550748742284089}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2
@@ -109,13 +109,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4e38e08737db55408ec2c9e3f901c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyType: 1
   lifeBar: {fileID: 8067835315479974714}
+  life: 10
+  enemyType: 1
   navMeshAgent: {fileID: 1069458358961121918}
   enemyAttack: {fileID: 9155822060524936189, guid: 14dffdecd59f74d4b9dfd35f7b257bb2,
     type: 3}
-  life: 10
-  speed: 1
+  speed: 0.8
   damage: 2
   attackDelay: 3
   distanceToAttack: 3

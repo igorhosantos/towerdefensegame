@@ -1,16 +1,23 @@
-﻿using Assets.Script.view.construction;
+﻿using Assets.Script.engine.construction;
+using Assets.Script.view.construction;
 using Assets.Script.view.statics;
 using UnityEngine;
 
-public class ConstructionView : MonoBehaviour
+public abstract class ConstructionView : MonoBehaviour
 {
     [SerializeField] protected ConstructionType constructionType;
     [SerializeField] protected Renderer renderer;
     [SerializeField] protected BuildingStatus status;
-    [SerializeField] protected AttackView constructionAttack;
-
+    
     public ConstructionType ConstructionType => constructionType;
     public bool ValidSpot { get; private set; } = true;
+
+    public bool Placed { get; protected set; }
+
+    protected virtual void Start()
+    {
+
+    }
 
     public void SelectMode()
     {
@@ -38,6 +45,7 @@ public class ConstructionView : MonoBehaviour
 
     public void Place()
     {
+        Placed = true;
         status.gameObject.SetActive(false);
     }
 }

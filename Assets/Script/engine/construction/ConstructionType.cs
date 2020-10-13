@@ -1,11 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public enum ConstructionType 
+﻿namespace Assets.Script.engine.construction
 {
-    Tower1,
-    Tower2,
-    Tower3,
-    Wall,
+    public enum ConstructionType
+    {
+        Tower1,
+        Tower2,
+        Tower3,
+        Wall,
+    }
 }

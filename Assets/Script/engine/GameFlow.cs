@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Assets.Script.engine;
+using Assets.Script.view.enemy;
+using Assets.Script.view.mainspot;
 using UnityEngine;
 
 public class GameFlow : MonoBehaviour
@@ -17,15 +19,24 @@ public class GameFlow : MonoBehaviour
     public delegate void WaveEvent(List<WaveMembers> members, int spawnId);
     public static event WaveEvent NotifyNewWave;
 
-
     //game finish control 
     private int totalEnemies;
     private int enemiesKilled;
+    private bool finishRound;
 
     void Start()
     {
+        finishRound = false;
         NotifyStart?.Invoke();
-        waveConfig.Waves.ForEach(SetWave);
+        
+        waveConfig.Waves.ForEach(w =>
+        {
+            totalEnemies += w.Members.Count;
+            SetWave(w);
+        });
+
+        EnemyView.NotifyEnemyDied += UpdateRoundToWin;
+        MainSpotView.NotifyMainSpotDied += UpdateRoundToLose;
     }
 
     private void SetWave(WaveData wv)=> StartCoroutine(NextWave(wv));
@@ -34,5 +45,26 @@ public class GameFlow : MonoBehaviour
     {
         yield return new WaitForSeconds(wave.TimeDelay);
         NotifyNewWave?.Invoke(wave.Members, wave.RandomSpawn ? Random.Range(1,GameConfig.TotalSpawnPoints) : wave.SpawnId);
+    }
+
+    private void UpdateRoundToWin()
+    {
+        if(finishRound) return;
+        
+        enemiesKilled++;
+
+        if (enemiesKilled >= totalEnemies)
+        {
+            finishRound = true;
+            NotifyWin?.Invoke();
+        }
+    }
+
+    private void UpdateRoundToLose()
+    {
+        if (finishRound) return;
+
+        finishRound = true;
+        NotifyLose?.Invoke();
     }
 }

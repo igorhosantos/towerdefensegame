@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Globalization;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,18 +13,19 @@ public class LifeBar : MonoBehaviour
     public void SetStatus(float currentStatus)
     {
         Status = currentStatus;
+        slider.maxValue = currentStatus;
         slider.value = currentStatus;
-        fill.color = gradient.Evaluate(1f);
+        fill.color = gradient.Evaluate(slider.maxValue);
         lifeLabel.text = currentStatus.ToString();
     }
 
     public void UpdateStatus(float currentUpdate)
     {
-        if (currentUpdate < 0) currentUpdate = 0;
+        Status += currentUpdate;
+        if (Status < 0) Status = 0;
 
-        Status = currentUpdate;
         slider.value = Status;
         fill.color = gradient.Evaluate(slider.normalizedValue);
-        lifeLabel.text = Status.ToString();
+        lifeLabel.text = Status.ToString(CultureInfo.InvariantCulture);
     }
 }
