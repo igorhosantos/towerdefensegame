@@ -19,20 +19,12 @@ namespace Assets.Script.view.mainspot
 
         protected override void OnDamage(GameObject other)
         {
-            switch (other.tag)
-            {
-                case Gametag.ENEMY_ATTACK:
+            AttackView currentAttack = other.GetComponent<AttackView>();
+            Destroy(other.gameObject);
+            life += -currentAttack.DamageAffected;
+            lifeBar.UpdateStatus(-currentAttack.DamageAffected);
 
-                    Destroy(other.gameObject);
-                    life += -10;
-                    lifeBar.UpdateStatus(-10);
-
-                    if (life == 0)
-                    {
-                        NotifyMainSpotDied?.Invoke();
-                    }
-                    break;
-            }
+            if (life == 0) NotifyMainSpotDied?.Invoke();
         }
     }
 }

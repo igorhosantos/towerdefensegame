@@ -31,7 +31,11 @@ public class GameFlow : MonoBehaviour
         
         waveConfig.Waves.ForEach(w =>
         {
-            totalEnemies += w.Members.Count;
+            w.Members.ForEach(m =>
+            {
+                totalEnemies += m.Amount;
+            });
+
             SetWave(w);
         });
 
@@ -52,6 +56,8 @@ public class GameFlow : MonoBehaviour
         if(finishRound) return;
         
         enemiesKilled++;
+
+        Debug.LogWarning("UPDATE TO WIN :" + enemiesKilled + " | " + totalEnemies);
 
         if (enemiesKilled >= totalEnemies)
         {

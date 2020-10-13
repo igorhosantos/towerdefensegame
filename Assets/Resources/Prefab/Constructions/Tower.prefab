@@ -226,9 +226,8 @@ MonoBehaviour:
     type: 3}
   cannon: {fileID: 6348863701010983505}
   behaviour: 0
-  rangeArea: 6
+  rangeArea: 5
   checkDelay: 1
-  targets: []
 --- !u!1001 &6291695002189188857
 PrefabInstance:
   m_ObjectHideFlags: 0

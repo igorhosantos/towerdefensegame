@@ -13,7 +13,7 @@ namespace Assets.Script.view.enemy
         [SerializeField] private NavMeshAgent navMeshAgent;
         [SerializeField] private AttackView enemyAttack;
         [SerializeField] private float speed;
-        [SerializeField] private float damage;
+        [SerializeField] private int damage;
         [SerializeField] private float attackDelay;
         [SerializeField] private float distanceToAttack;
         
@@ -42,21 +42,25 @@ namespace Assets.Script.view.enemy
 
         protected override void OnDamage(GameObject other)
         {
-            switch (other.tag)
+            AttackView currentAttack = other.GetComponent<AttackView>();
+
+            if (currentAttack.DamageAffected > 0)
             {
-                case Gametag.CONSTRUCTION_ATTACK:
+                life += -currentAttack.DamageAffected;
+                lifeBar.UpdateStatus(-currentAttack.DamageAffected);
+            }
 
-                    Destroy(other.gameObject);
-                    life +=  -10;
-                    lifeBar.UpdateStatus(-10);
+            if (currentAttack.SpeedAffected > 0 )
+            {
+                navMeshAgent.speed -= currentAttack.SpeedAffected;
+            }
 
-                    if (life == 0)
-                    {
-                        NotifyEnemyDied?.Invoke();
-                        Destroy(gameObject);
-                    }
-
-                    break;
+            Destroy(other.gameObject);
+           
+            if (life == 0)
+            {
+                NotifyEnemyDied?.Invoke();
+                Destroy(gameObject);
             }
         }
 
@@ -91,11 +95,13 @@ namespace Assets.Script.view.enemy
         {
             AttackView attack = Instantiate(enemyAttack, transform.position, transform.rotation);
             Vector3 direction = (mainSpot.transform.position - transform.position).normalized;
-            attack.ShootDirection(direction, 10f);
+            attack.ShootDirection(direction, damage, 0);
         }
 
         void OnDestroy()
         {
+            GameFlow.NotifyWin -= EndGame;
+            GameFlow.NotifyLose -= EndGame;
             CancelInvoke(nameof(Attack));
         }
 

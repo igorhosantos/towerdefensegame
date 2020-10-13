@@ -14,9 +14,12 @@ public abstract class ConstructionView : MonoBehaviour
 
     public bool Placed { get; protected set; }
 
+    protected abstract void EndGame();
+    
     protected virtual void Start()
     {
-
+        GameFlow.NotifyWin += EndGame;
+        GameFlow.NotifyLose += EndGame;
     }
 
     public void SelectMode()
@@ -27,25 +30,30 @@ public abstract class ConstructionView : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag(Gametag.CONSTRUCTION))
-        {
-            ValidSpot = false;
-            status.UpdateStatus(ValidSpot);
-        }
+        if (!other.gameObject.CompareTag(Gametag.CONSTRUCTION)) return;
+
+        ValidSpot = false;
+        status.UpdateStatus(ValidSpot);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag(Gametag.CONSTRUCTION))
-        {
-            ValidSpot = true;
-            status.UpdateStatus(ValidSpot);
-        }
+        if (!other.gameObject.CompareTag(Gametag.CONSTRUCTION)) return;
+
+        ValidSpot = true;
+        status.UpdateStatus(ValidSpot);
     }
 
-    public void Place()
+    public virtual void Place()
     {
         Placed = true;
         status.gameObject.SetActive(false);
     }
+
+    protected virtual void OnDestroy()
+    {
+        GameFlow.NotifyWin -= EndGame;
+        GameFlow.NotifyLose -= EndGame;
+    }
+   
 }

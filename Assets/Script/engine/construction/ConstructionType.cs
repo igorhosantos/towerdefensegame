@@ -2,9 +2,9 @@
 {
     public enum ConstructionType
     {
-        Tower1,
-        Tower2,
-        Tower3,
+        TowerDamageArea,
+        TowerDamageCount,
+        TowerSlowEffectArea,
         Wall,
     }
 }

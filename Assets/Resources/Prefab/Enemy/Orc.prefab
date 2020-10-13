@@ -116,7 +116,7 @@ MonoBehaviour:
   enemyAttack: {fileID: 9155822060524936189, guid: 14dffdecd59f74d4b9dfd35f7b257bb2,
     type: 3}
   speed: 0.5
-  damage: 1
+  damage: 20
   attackDelay: 2
   distanceToAttack: 3
 --- !u!195 &1069458358961121918
