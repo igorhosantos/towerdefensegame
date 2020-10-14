@@ -24,6 +24,8 @@ public abstract class ConstructionView : MonoBehaviour
 
     public void SelectMode()
     {
+        if (renderer == null) return;
+
         Color myColor = renderer.material.color;
         renderer.material.color = new Color(myColor.r, myColor.g, myColor.b, 0.5f);
     }
