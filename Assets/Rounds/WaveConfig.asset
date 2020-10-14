@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: WaveConfig
   m_EditorClassIdentifier: 
   waves:
-  - spawnId: 2
-    randomSpawn: 0
+  - spawnId: 1
+    randomSpawn: 1
     timeDelay: 2
     members:
     - enemyType: 0
       amount: 2
   - spawnId: 1
-    randomSpawn: 0
+    randomSpawn: 1
     timeDelay: 6
     members:
     - enemyType: 1

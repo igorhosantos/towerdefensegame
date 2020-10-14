@@ -393,6 +393,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: Tower1
       objectReference: {fileID: 0}
+    - target: {fileID: 3906754280653877156, guid: 8855700773e7c6d40b3e93cc84c8d895,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8855700773e7c6d40b3e93cc84c8d895, type: 3}
 --- !u!224 &4402161234494513344 stripped
@@ -535,10 +540,20 @@ PrefabInstance:
       propertyPath: m_Text
       value: Tower2
       objectReference: {fileID: 0}
+    - target: {fileID: 3906754280653877156, guid: 8855700773e7c6d40b3e93cc84c8d895,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7091113649149675272, guid: 8855700773e7c6d40b3e93cc84c8d895,
         type: 3}
       propertyPath: constructionType
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7091113649149675272, guid: 8855700773e7c6d40b3e93cc84c8d895,
+        type: 3}
+      propertyPath: towerBehaviour
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8855700773e7c6d40b3e93cc84c8d895, type: 3}
@@ -682,9 +697,19 @@ PrefabInstance:
       propertyPath: m_Text
       value: Wall
       objectReference: {fileID: 0}
+    - target: {fileID: 3906754280653877156, guid: 8855700773e7c6d40b3e93cc84c8d895,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7091113649149675272, guid: 8855700773e7c6d40b3e93cc84c8d895,
         type: 3}
       propertyPath: constructionType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7091113649149675272, guid: 8855700773e7c6d40b3e93cc84c8d895,
+        type: 3}
+      propertyPath: towerBehaviour
       value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -829,10 +854,20 @@ PrefabInstance:
       propertyPath: m_Text
       value: Tower3
       objectReference: {fileID: 0}
+    - target: {fileID: 3906754280653877156, guid: 8855700773e7c6d40b3e93cc84c8d895,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7091113649149675272, guid: 8855700773e7c6d40b3e93cc84c8d895,
         type: 3}
       propertyPath: constructionType
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7091113649149675272, guid: 8855700773e7c6d40b3e93cc84c8d895,
+        type: 3}
+      propertyPath: towerBehaviour
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8855700773e7c6d40b3e93cc84c8d895, type: 3}

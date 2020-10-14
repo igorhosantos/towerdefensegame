@@ -5,6 +5,7 @@ namespace Assets.Script.engine.construction.tower
     {
         DamageArea,
         SlowEffectArea,
-        MultipleTargets
+        MultipleTargets,
+        None
     }
 }

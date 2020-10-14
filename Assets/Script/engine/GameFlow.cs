@@ -48,7 +48,7 @@ public class GameFlow : MonoBehaviour
     private IEnumerator NextWave(WaveData wave)
     {
         yield return new WaitForSeconds(wave.TimeDelay);
-        NotifyNewWave?.Invoke(wave.Members, wave.RandomSpawn ? Random.Range(1,GameConfig.TotalSpawnPoints) : wave.SpawnId);
+        NotifyNewWave?.Invoke(wave.Members, wave.RandomSpawn ? Random.Range(1,GameConfig.TotalSpawnPoints+1) : wave.SpawnId);
     }
 
     private void UpdateRoundToWin()
