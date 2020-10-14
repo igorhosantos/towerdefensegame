@@ -57,8 +57,6 @@ public class GameFlow : MonoBehaviour
         
         enemiesKilled++;
 
-        Debug.LogWarning("UPDATE TO WIN :" + enemiesKilled + " | " + totalEnemies);
-
         if (enemiesKilled >= totalEnemies)
         {
             finishRound = true;

@@ -1,15 +1,21 @@
-﻿
-using UnityEditor.AI;
+﻿using UnityEditor.AI;
 using UnityEngine;
 
 public class BuildingPlaceable : MonoBehaviour
 {
-    private RaycastHit hit;
+    [SerializeField] private float gridSize = 0.5f;
+
     private Vector3 movePoint;
     private ConstructionView prefab;
     private ConstructionView target;
     private bool enable;
-    
+    private Camera mainCamera;
+
+    void Awake()
+    {
+        mainCamera = Camera.main;
+        NavMeshBuilder.BuildNavMesh();
+    }
     public void EnableNewConstruction(ConstructionView constructionView)
     {
         prefab = constructionView;
@@ -18,25 +24,20 @@ public class BuildingPlaceable : MonoBehaviour
         enable = true;
     }
 
-    void Awake()
-    {
-        NavMeshBuilder.BuildNavMesh();
-    }
-
-    void Start()
-    {
-        UpdatePosition();
-    }
-
     private void UpdatePosition()
     {
         if (!enable) return;
 
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
+        RaycastHit hit;
+        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+        
         if (Physics.Raycast(ray, out hit)) 
         {
-            target.transform.position = new Vector3(hit.point.x, target.transform.position.y, hit.point.z);
+            Vector3 pos = new Vector3(Mathf.RoundToInt(hit.point.x/gridSize)* gridSize,
+                                        Mathf.RoundToInt(target.transform.position.y),
+                                        Mathf.RoundToInt(hit.point.z / gridSize) * gridSize);
+
+            target.transform.position = pos;
         }
     }
 
