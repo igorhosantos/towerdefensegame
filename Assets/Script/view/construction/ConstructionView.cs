@@ -24,10 +24,13 @@ public abstract class ConstructionView : MonoBehaviour
 
     public void SelectMode()
     {
-        if (renderer == null) return;
+        if (renderer == null)
+        {
+            Debug.LogError("Construction needs to renderer : " + GetType().Name);
+            return;
+        }
 
-        Color myColor = renderer.material.color;
-        renderer.material.color = new Color(myColor.r, myColor.g, myColor.b, 0.5f);
+        renderer.material.color = new Color(250, 250, 250, 0);
     }
 
     private void OnTriggerEnter(Collider other)

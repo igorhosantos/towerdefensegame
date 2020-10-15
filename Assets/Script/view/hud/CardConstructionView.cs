@@ -18,27 +18,31 @@ public class CardConstructionView : MonoBehaviour
 
         switch (constructionType)
         {
-            case ConstructionType.TowerDamageCount:
             case ConstructionType.TowerDamageArea:
+                title.text = "TOWER 1";
+                break;
+            case ConstructionType.TowerDamageCount:
+                title.text = "TOWER 2";
+                break;
             case ConstructionType.TowerSlowEffectArea:
-                title.text = "TORRE";
+                title.text = "TOWER 3";
                 break;
             case ConstructionType.Wall:
-                title.text = "MURO";
-                description.text = "Bloqueia os inimigos";
+                title.text = "WALL";
+                description.text = "Block the enemies";
                 break;
         }
 
         switch (towerBehaviour)
         {
             case TowerBehaviourType.DamageArea:
-                description.text = "Dano em todos os inimigos em sua área";
+                description.text = "Damages all enemies in its range";
                 break;
             case TowerBehaviourType.MultipleTargets:
-                description.text = "Danos em até 3 inimigos no campo";
+                description.text = "Damages up to three enemies on the field";
                 break;
             case TowerBehaviourType.SlowEffectArea:
-                description.text = "Aplica lentidão em todos os inimigos em sua área";
+                description.text = "Slows all enemies in its range";
                 break;
         }
     }

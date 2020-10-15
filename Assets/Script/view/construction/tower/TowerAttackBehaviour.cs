@@ -33,7 +33,7 @@ namespace Assets.Script.view.construction.tower
         {
             AttackView attack = Instantiate(towerAttack, view.Cannon.position, view.Cannon.rotation);
             Vector3 direction = (enemy.transform.position - view.Cannon.transform.position).normalized;
-            attack.ShootDirection(direction, damageAffected, speedAffected);
+            attack.ShootDirection(enemy.Speed,direction, damageAffected, speedAffected);
         }
     }
 }

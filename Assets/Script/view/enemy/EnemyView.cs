@@ -16,7 +16,10 @@ namespace Assets.Script.view.enemy
         [SerializeField] private int damage;
         [SerializeField] private float attackDelay;
         [SerializeField] private float distanceToAttack;
-        
+
+        private float minSpeed = 0.2f;
+        public float Speed => speed;
+
         public EnemyType EnemyType => enemyType;
 
         private MainSpotView mainSpot;
@@ -50,9 +53,10 @@ namespace Assets.Script.view.enemy
                 lifeBar.UpdateStatus(-currentAttack.DamageAffected);
             }
 
-            if (currentAttack.SpeedAffected > 0 )
+            if (currentAttack.SpeedAffected > 0)
             {
                 navMeshAgent.speed -= currentAttack.SpeedAffected;
+                if (navMeshAgent.speed < minSpeed) navMeshAgent.speed = minSpeed;
             }
 
             Destroy(other.gameObject);
@@ -95,7 +99,7 @@ namespace Assets.Script.view.enemy
         {
             AttackView attack = Instantiate(enemyAttack, transform.position, transform.rotation);
             Vector3 direction = (mainSpot.transform.position - transform.position).normalized;
-            attack.ShootDirection(direction, damage, 0);
+            attack.ShootDirection(0,direction, damage, 0);
         }
 
         void OnDestroy()

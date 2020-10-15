@@ -54,8 +54,17 @@ public class BuildingPlaceable : MonoBehaviour
                 NavMeshBuilder.BuildNavMesh();
             }
 
-            Destroy(target.gameObject);
-            enable = false;
+            CancelConstruction();
         }
+        else if (Input.GetMouseButton(1) && enable)
+        {
+            CancelConstruction();
+        }
+    }
+
+    private void CancelConstruction()
+    {
+        Destroy(target.gameObject);
+        enable = false;
     }
 }
