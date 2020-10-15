@@ -6,7 +6,7 @@ A Tower Defense Game made with Unity
 Select card with construction view you are, click at the field to build it.
 Defend your castle of the wave enemies.
 
-# Controle: 
+# Control: 
 
 - Mouse Left Click : Select card and put on field;
 - Mouse Right Click : Cancel the construction is selected.
