@@ -19,9 +19,29 @@ MonoBehaviour:
     members:
     - enemyType: 0
       amount: 2
+    - enemyType: 1
+      amount: 3
   - spawnId: 1
     randomSpawn: 1
     timeDelay: 6
+    members:
+    - enemyType: 1
+      amount: 3
+  - spawnId: 1
+    randomSpawn: 1
+    timeDelay: 10
+    members:
+    - enemyType: 1
+      amount: 3
+  - spawnId: 1
+    randomSpawn: 1
+    timeDelay: 15
+    members:
+    - enemyType: 1
+      amount: 3
+  - spawnId: 1
+    randomSpawn: 1
+    timeDelay: 20
     members:
     - enemyType: 1
       amount: 3

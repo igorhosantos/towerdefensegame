@@ -44,6 +44,7 @@ public class CardConstructionView : MonoBehaviour
             case TowerBehaviourType.SlowEffectArea:
                 description.text = "Slows all enemies in its range";
                 break;
+            
         }
     }
 }

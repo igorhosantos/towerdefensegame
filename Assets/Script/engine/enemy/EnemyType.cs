@@ -2,5 +2,5 @@
 public enum EnemyType
 {
     Orc,
-    Dragon
+    Knight
 }
