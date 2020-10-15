@@ -10,6 +10,7 @@ namespace Assets.Script.view.enemy
     public class EnemyView: CharacterView
     {
         [SerializeField] private EnemyType enemyType;
+        [SerializeField] private EnemyAnimationView animationView;
         [SerializeField] private NavMeshAgent navMeshAgent;
         [SerializeField] private AttackView enemyAttack;
         [SerializeField] private float speed;
@@ -39,8 +40,8 @@ namespace Assets.Script.view.enemy
 
         private void EndGame()
         {
+            animationView.Stop();
             CancelInvoke(nameof(Attack));
-
         }
 
         protected override void OnDamage(GameObject other)
@@ -84,6 +85,7 @@ namespace Assets.Script.view.enemy
 
             if (navMeshAgent.remainingDistance <= distanceToAttack)
             {
+                animationView.Stop();
                 navMeshAgent.isStopped = true;
                 enabledToAttack = true;
                 ActivateAttackLoop();
@@ -97,6 +99,7 @@ namespace Assets.Script.view.enemy
 
         private void Attack()
         {
+            animationView.Attack();
             AttackView attack = Instantiate(enemyAttack, transform.position, transform.rotation);
             Vector3 direction = (mainSpot.transform.position - transform.position).normalized;
             attack.ShootDirection(0,direction, damage, 0);
