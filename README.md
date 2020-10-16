@@ -4,11 +4,11 @@ A Tower Defense Game made with Unity
 ---------------------
 ![](game.gif)
 
-
 # How to play: 
 
 - Select a building card, click on the field to build it.
 - Defend your castle from the enemy waves.
+- Exe\Tower Defense Game.exe to run this game.
 
 # Control: 
 
