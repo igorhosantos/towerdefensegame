@@ -40,6 +40,8 @@ namespace Assets.Script.view.enemy
 
         private void EndGame()
         {
+            navMeshAgent.speed = 0;
+            navMeshAgent.isStopped = true;
             animationView.Stop();
             CancelInvoke(nameof(Attack));
         }

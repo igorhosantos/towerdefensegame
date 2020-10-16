@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7932060084189513730}
   - component: {fileID: 3301843099431048419}
   - component: {fileID: 7850221135327930626}
+  - component: {fileID: 818445837289139868}
   - component: {fileID: 5643419795544910679}
   - component: {fileID: 3852024616581257324}
   m_Layer: 0
@@ -81,6 +82,23 @@ MonoBehaviour:
   constructionType: 3
   renderer: {fileID: 3852024616581257324}
   status: {fileID: 5340123556268402821}
+  navMeshObstacle: {fileID: 818445837289139868}
+--- !u!208 &818445837289139868
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7279862662489425149}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.65, y: 0.5, z: 0.7}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!33 &5643419795544910679
 MeshFilter:
   m_ObjectHideFlags: 0

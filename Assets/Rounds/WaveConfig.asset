@@ -15,7 +15,7 @@ MonoBehaviour:
   waves:
   - spawnId: 1
     randomSpawn: 1
-    timeDelay: 2
+    timeDelay: 3
     members:
     - enemyType: 0
       amount: 2

@@ -2,12 +2,14 @@
 using Assets.Script.view.construction;
 using Assets.Script.view.statics;
 using UnityEngine;
+using UnityEngine.AI;
 
 public abstract class ConstructionView : MonoBehaviour
 {
     [SerializeField] protected ConstructionType constructionType;
     [SerializeField] protected Renderer renderer;
     [SerializeField] protected BuildingStatus status;
+    [SerializeField] protected NavMeshObstacle navMeshObstacle;
     
     public ConstructionType ConstructionType => constructionType;
     public bool ValidSpot { get; private set; } = true;
@@ -15,7 +17,12 @@ public abstract class ConstructionView : MonoBehaviour
     public bool Placed { get; protected set; }
 
     protected abstract void EndGame();
-    
+
+    void Awake()
+    {
+        navMeshObstacle.enabled = false;
+    }
+
     protected virtual void Start()
     {
         GameFlow.NotifyWin += EndGame;
@@ -51,6 +58,7 @@ public abstract class ConstructionView : MonoBehaviour
 
     public virtual void Place()
     {
+        navMeshObstacle.enabled = true;
         Placed = true;
         status.gameObject.SetActive(false);
     }

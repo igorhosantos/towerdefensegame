@@ -1,5 +1,5 @@
-﻿using UnityEditor.AI;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.AI;
 
 public class BuildingPlaceable : MonoBehaviour
 {
@@ -14,7 +14,6 @@ public class BuildingPlaceable : MonoBehaviour
     void Awake()
     {
         mainCamera = Camera.main;
-        NavMeshBuilder.BuildNavMesh();
     }
     public void EnableNewConstruction(ConstructionView constructionView)
     {
@@ -49,9 +48,8 @@ public class BuildingPlaceable : MonoBehaviour
         {
             if (target.ValidSpot)
             {
-                ConstructionView view = Instantiate(prefab, target.transform.position, target.transform.rotation,transform);
+                ConstructionView view = Instantiate(prefab, target.transform.position, target.transform.rotation, transform);
                 view.Place();
-                NavMeshBuilder.BuildNavMesh();
             }
 
             CancelConstruction();
@@ -67,4 +65,5 @@ public class BuildingPlaceable : MonoBehaviour
         Destroy(target.gameObject);
         enable = false;
     }
+
 }
