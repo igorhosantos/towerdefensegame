@@ -1,5 +1,7 @@
-# towerdefensegame
+# Tower Defense Game
+---------------------
 A Tower Defense Game made with Unity 
+---------------------
 ![](game.gif)
 
 
@@ -15,8 +17,12 @@ Defend your castle of the wave enemies.
 
 # Waves
 
+Waves and members creation with Scriptable Object
+
 ![](wavescriptable.PNG)
 
 # Spawn Waves
+
+Spawn waves base on prefab spots
 
 ![](spawnspot.PNG)
