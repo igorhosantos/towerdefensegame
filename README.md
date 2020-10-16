@@ -1,5 +1,7 @@
 # towerdefensegame
 A Tower Defense Game made with Unity 
+![](game.gif)
+
 
 # How to play: 
 
@@ -10,3 +12,11 @@ Defend your castle of the wave enemies.
 
 - Mouse Left Click : Select card and put on field;
 - Mouse Right Click : Cancel the construction is selected.
+
+# Waves
+
+![](wavescriptable.PNG)
+
+# Spawn Waves
+
+![](spawnspot.PNG)
