@@ -8,7 +8,7 @@ A Tower Defense Game made with Unity
 # How to play: 
 
 - Select a building card, click on the field to build it.
-- Defend your castle from the enemie waves.
+- Defend your castle from the enemy waves.
 
 # Control: 
 
@@ -17,12 +17,12 @@ A Tower Defense Game made with Unity
 
 # Waves
 
--Waves and Members created by ScriptableObject
+- Waves and Members created by ScriptableObject
 
 ![](wavescriptable.PNG)
 
 # Spawn Waves
 
-Spawn waves based on PrefabSpots
+- Spawn waves based on PrefabSpots
 
 ![](spawnspot.PNG)
